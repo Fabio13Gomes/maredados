@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - MareDados | Consultoria em Dados para Pequenos Negócios</title>
+    <meta name="description" content="Entre em contato com a MareDados para consultoria em dados e tecnologia para seu negócio em São Sebastião-SP. Agende uma consulta inicial gratuita.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        /* Estilos específicos da página de contato */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-form-container {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info-container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-card h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .contact-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .contact-text p {
+            color: var(--gray);
+        }
+        
+        .social-links-contact {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links-contact a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .social-links-contact a:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .business-hours {
+            margin-top: 20px;
+        }
+        
+        .business-hours h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .day {
+            font-weight: 500;
+        }
+        
+        .hours {
+            color: var(--gray);
+        }
+        
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 15px 20px;
+            background-color: var(--light-gray);
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            display: none;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info-container {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Mare<span>Dados</span></a>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="casos.html">Casos de Sucesso</a></li>
+                    <li><a href="contato.html" class="active">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Entre em Contato</h1>
+            <p>Estamos prontos para ajudar seu negócio a crescer com o poder dos dados</p>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fale Conosco</h2>
+                <p>Agende uma consulta inicial gratuita ou tire suas dúvidas</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome Completo*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefone*</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="business">Nome do Negócio</label>
+                            <input type="text" id="business" name="business">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Assunto*</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Selecione uma opção</option>
+                                <option value="consultoria">Consultoria</option>
+                                <option value="orcamento">Orçamento</option>
+                                <option value="duvida">Dúvidas</option>
+                                <option value="parceria">Proposta de Parceria</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem*</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="contact-info-container">
+                    <div class="contact-card">
+                        <h3>Informações de Contato</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Endereço</h4>
+                                <p>Av. Guarda Mor Lobo Viana, 1500<br>Centro, São Sebastião - SP<br>CEP: 11600-000</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telefone</h4>
+                                <p>(12) 3892-0000</p>
+                                <p>(12) 99999-8888 (WhatsApp)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>E-mail</h4>
+                                <p>contato@maredados.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links-contact">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                        
+                        <div class="business-hours">
+                            <h4>Horário de Atendimento</h4>
+                            <div class="hours-item">
+                                <span class="day">Segunda a Sexta:</span>
+                                <span class="hours">9h às 18h</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Sábado:</span>
+                                <span class="hours">9h às 13h</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Domingo e Feriados:</span>
+                                <span class="hours">Fechado</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3>Atendimento Rápido</h3>
+                        <p>Prefere falar diretamente conosco? Clique em um dos botões abaixo:</p>
+                        <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px;">
+                            <a href="https://wa.me/5512999998888" class="btn btn-primary" style="display: flex; align-items: center;">
+                                <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp
+                            </a>
+                            <a href="tel:+551238920000" class="btn btn-secondary" style="display: flex; align-items: center;">
+                                <i class="fas fa-phone" style="margin-right: 8px;"></i> Ligar Agora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre nosso atendimento</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funciona a consulta inicial gratuita?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A consulta inicial é uma conversa de aproximadamente 30 minutos, que pode ser realizada presencialmente em nosso escritório ou online. Nela, conversamos sobre seu negócio, seus desafios e objetivos. Após essa conversa, apresentamos uma proposta personalizada com as soluções mais adequadas para o seu caso.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto tempo leva para receber uma proposta após o contato inicial?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Normalmente, enviamos a proposta em até 48 horas após a consulta inicial. A proposta inclui detalhamento dos serviços recomendados, prazos, investimento e condições de pagamento.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Vocês atendem apenas presencialmente ou também de forma remota?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oferecemos atendimento híbrido. Algumas etapas da consultoria são realizadas presencialmente, como o diagnóstico inicial e apresentações de resultados. Outras etapas podem ser realizadas remotamente, como análise de dados e reuniões de acompanhamento. Adaptamos o formato de acordo com a sua preferência e disponibilidade.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quais formas de pagamento vocês aceitam?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceitamos diversas formas de pagamento, incluindo cartão de crédito (parcelamento em até 12x), transferência bancária, PIX e boleto. Para pacotes de longo prazo, também oferecemos a opção de pagamento mensal.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Vocês oferecem algum tipo de garantia?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, oferecemos garantia de satisfação. Se após os primeiros 30 dias de consultoria você não estiver satisfeito com os resultados ou com o atendimento, devolvemos 100% do valor investido, sem questionamentos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Mare<span>Dados</span></div>
+                    <p>Consultoria em dados e tecnologia para pequenos negócios em São Sebastião-SP, ajudando comerciantes locais a enfrentarem os desafios da baixa temporada.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="casos.html">Casos de Sucesso</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Serviços</h3>
+                    <ul>
+                        <li><a href="servicos.html#diagnostico">Diagnóstico de Negócios</a></li>
+                        <li><a href="servicos.html#crescimento">Planejamento Estratégico</a></li>
+                        <li><a href="servicos.html#transformacao">Marketing com Dados</a></li>
+                        <li><a href="servicos.html#detalhes">Capacitação</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Guarda Mor Lobo Viana, 1500, Centro, São Sebastião - SP</p>
+                    <p><i class="fas fa-phone"></i> (12) 3892-0000</p>
+                    <p><i class="fas fa-envelope"></i> contato@maredados.com.br</p>
+                    <p><i class="fas fa-clock"></i> Segunda a Sexta: 9h às 18h</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MareDados. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        // JavaScript específico para a página de contato
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    faqItem.classList.toggle('active');
+                    
+                    const icon = this.querySelector('i');
+                    if (faqItem.classList.contains('active')) {
+                        icon.classList.replace('fa-plus', 'fa-minus');
+                    } else {
+                        icon.classList.replace('fa-minus', 'fa-plus');
+                    }
+                });
+            });
+            
+            // Formulário de contato
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simulação de envio bem-sucedido
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'success-message';
+                    successMessage.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+                    
+                    contactForm.parentElement.insertBefore(successMessage, contactForm);
+                    contactForm.reset();
+                    
+                    // Rolar para a mensagem de sucesso
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Remover a mensagem após 5 segundos
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 5000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

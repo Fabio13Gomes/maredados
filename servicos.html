@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - MareDados | Consultoria em Dados para Pequenos Negócios</title>
+    <meta name="description" content="Conheça nossos serviços de consultoria em dados e tecnologia para pequenos negócios em São Sebastião-SP, com pacotes flexíveis e soluções personalizadas.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        /* Estilos específicos da página de serviços */
+        .service-package {
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+        
+        .service-package:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .package-diagnostico {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .package-crescimento {
+            background-color: rgba(243, 156, 18, 0.1);
+            border-left: 5px solid var(--accent);
+        }
+        
+        .package-transformacao {
+            background-color: rgba(10, 61, 98, 0.1);
+            border-left: 5px solid var(--primary);
+        }
+        
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .package-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .package-features li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .package-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .accordion {
+            margin-bottom: 20px;
+        }
+        
+        .accordion-header {
+            background-color: var(--light-gray);
+            padding: 15px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .accordion-content {
+            padding: 20px;
+            display: none;
+            border: 1px solid var(--light-gray);
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .accordion.active .accordion-header {
+            background-color: var(--secondary);
+            color: var(--white);
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .accordion.active .accordion-content {
+            display: block;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Mare<span>Dados</span></a>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="servicos.html" class="active">Serviços</a></li>
+                    <li><a href="casos.html">Casos de Sucesso</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Nossos Serviços</h1>
+            <p>Soluções personalizadas em dados e tecnologia para impulsionar seu negócio em São Sebastião</p>
+        </div>
+    </section>
+
+    <!-- Pacotes de Serviços -->
+    <section id="pacotes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pacotes de Serviços</h2>
+                <p>Escolha o plano ideal para as necessidades do seu negócio</p>
+            </div>
+            
+            <div class="service-package package-diagnostico" id="diagnostico">
+                <div class="package-header">
+                    <h3>Pacote Diagnóstico</h3>
+                    <div class="package-price">A partir de R$ 1.200</div>
+                </div>
+                <p>Ideal para negócios que desejam entender melhor sua situação atual e identificar oportunidades de melhoria baseadas em dados.</p>
+                <ul class="package-features">
+                    <li>Análise completa de dados de vendas e sazonalidade</li>
+                    <li>Identificação de padrões de comportamento dos clientes</li>
+                    <li>Mapeamento de pontos fortes e oportunidades de melhoria</li>
+                    <li>Relatório detalhado com recomendações práticas</li>
+                    <li>1 reunião de apresentação dos resultados</li>
+                </ul>
+                <div class="text-center">
+                    <a href="contato.html" class="btn btn-primary">Solicitar Proposta</a>
+                </div>
+            </div>
+            
+            <div class="service-package package-crescimento" id="crescimento">
+                <div class="package-header">
+                    <h3>Pacote Crescimento</h3>
+                    <div class="package-price">A partir de R$ 2.500</div>
+                </div>
+                <p>Para negócios que já possuem um diagnóstico e desejam implementar estratégias baseadas em dados para crescer e enfrentar a sazonalidade.</p>
+                <ul class="package-features">
+                    <li>Tudo do Pacote Diagnóstico</li>
+                    <li>Planejamento estratégico para baixa temporada</li>
+                    <li>Estratégias de precificação dinâmica baseada em dados</li>
+                    <li>Plano de marketing direcionado por segmentação de clientes</li>
+                    <li>Implementação assistida das recomendações</li>
+                    <li>3 meses de acompanhamento e ajustes</li>
+                </ul>
+                <div class="text-center">
+                    <a href="contato.html" class="btn btn-primary">Solicitar Proposta</a>
+                </div>
+            </div>
+            
+            <div class="service-package package-transformacao" id="transformacao">
+                <div class="package-header">
+                    <h3>Pacote Transformação</h3>
+                    <div class="package-price">A partir de R$ 4.800</div>
+                </div>
+                <p>Consultoria completa para negócios que buscam uma transformação profunda baseada em dados e tecnologia, com acompanhamento contínuo.</p>
+                <ul class="package-features">
+                    <li>Tudo do Pacote Crescimento</li>
+                    <li>Implementação de ferramentas de gestão baseadas em dados</li>
+                    <li>Capacitação da equipe para análise e uso de dados</li>
+                    <li>Desenvolvimento de dashboard personalizado para seu negócio</li>
+                    <li>Acesso ao aplicativo MareDados para acompanhamento</li>
+                    <li>6 meses de consultoria contínua e suporte</li>
+                </ul>
+                <div class="text-center">
+                    <a href="contato.html" class="btn btn-primary">Solicitar Proposta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detalhes dos Serviços -->
+    <section id="detalhes" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços em Detalhes</h2>
+                <p>Conheça todas as soluções que oferecemos para o seu negócio</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Diagnóstico de Negócios</h3>
+                    <p>Análise completa do seu negócio utilizando dados de vendas, clientes e sazonalidade. Identificamos padrões, tendências e oportunidades que muitas vezes passam despercebidos no dia a dia.</p>
+                    <p>Utilizamos técnicas avançadas de análise de dados para transformar informações brutas em insights valiosos para a tomada de decisão.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Planejamento Estratégico</h3>
+                    <p>Desenvolvimento de estratégias baseadas em dados para enfrentar a baixa temporada e otimizar resultados durante o ano todo. Criamos planos de ação personalizados para cada fase do ano.</p>
+                    <p>Nosso planejamento inclui metas claras, indicadores de desempenho e cronogramas realistas para implementação.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing com Dados</h3>
+                    <p>Criação de estratégias de marketing direcionadas, baseadas no comportamento real dos seus clientes e nas tendências locais. Identificamos os canais mais eficientes e as mensagens que realmente funcionam.</p>
+                    <p>Utilizamos segmentação de clientes para criar campanhas personalizadas que geram mais engajamento e conversão.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Análise de Viabilidade</h3>
+                    <p>Para quem deseja abrir um novo negócio ou expandir o atual, oferecemos análise de viabilidade baseada em dados reais do mercado local, sazonalidade e comportamento do consumidor.</p>
+                    <p>Avaliamos riscos, oportunidades e projeções financeiras para embasar sua decisão de investimento.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Capacitação</h3>
+                    <p>Treinamentos práticos para você e sua equipe sobre como utilizar dados no dia a dia do negócio. Ensinamos de forma simples e acessível, sem jargões técnicos.</p>
+                    <p>Nossos workshops são personalizados para o seu segmento e nível de conhecimento, garantindo aplicação prática imediata.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Aplicativo de Gestão</h3>
+                    <p>Acesso ao aplicativo MareDados para acompanhar o progresso da sua consultoria, visualizar dados do seu negócio e receber alertas e recomendações personalizadas.</p>
+                    <p>Uma ferramenta simples e intuitiva que coloca o poder dos dados na palma da sua mão, sem complicações.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processo de Trabalho -->
+    <section id="processo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nosso Processo de Trabalho</h2>
+                <p>Como transformamos dados em resultados para o seu negócio</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Diagnóstico Inicial</h3>
+                        <p>Realizamos uma análise completa do seu negócio, coletando dados de vendas, clientes, sazonalidade e operações. Identificamos pontos fortes e oportunidades de melhoria.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Análise e Planejamento</h3>
+                        <p>Nossa equipe processa os dados coletados, identifica padrões e tendências, e desenvolve um plano de ação personalizado para o seu negócio, com metas claras e mensuráveis.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Apresentação e Ajustes</h3>
+                        <p>Apresentamos os resultados da análise e o plano de ação proposto, discutimos os pontos principais e realizamos ajustes conforme suas necessidades e feedback.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Implementação</h3>
+                        <p>Colocamos o plano em prática, com acompanhamento constante da nossa equipe. Implementamos as estratégias, ferramentas e processos definidos no planejamento.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Monitoramento e Otimização</h3>
+                        <p>Acompanhamos os resultados, analisamos os indicadores de desempenho e realizamos ajustes contínuos para garantir que as metas sejam alcançadas.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Capacitação e Autonomia</h3>
+                        <p>Transferimos conhecimento para você e sua equipe, garantindo que possam continuar aplicando as estratégias e utilizando as ferramentas mesmo após o término da consultoria.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre nossos serviços</p>
+            </div>
+            
+            <div class="accordion-container">
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>Preciso ter conhecimento em tecnologia para contratar os serviços?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Não, nosso trabalho é justamente traduzir conceitos complexos de dados e tecnologia para uma linguagem simples e acessível. Você não precisa ter nenhum conhecimento prévio, pois acompanhamos todo o processo e explicamos cada etapa de forma clara.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>Quanto tempo leva para ver resultados?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Os primeiros insights são obtidos já nas primeiras semanas de trabalho, com o diagnóstico inicial. Resultados práticos começam a aparecer entre 1 e 3 meses, dependendo do pacote contratado e da complexidade do seu negócio. Transformações mais profundas geralmente são percebidas a partir de 3 a 6 meses de trabalho contínuo.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>Como é feita a coleta de dados do meu negócio?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Utilizamos diferentes métodos, adaptados à realidade do seu negócio. Podemos trabalhar com sistemas de gestão que você já utiliza, planilhas, registros manuais ou até mesmo implementar ferramentas simples de coleta. Todo o processo respeita a confidencialidade das informações e é feito com sua autorização e acompanhamento.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>Os pacotes podem ser personalizados?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Sim, entendemos que cada negócio é único. Os pacotes apresentados são modelos base, mas podemos personalizar os serviços de acordo com as necessidades específicas do seu negócio. Durante a consulta inicial, identificamos juntos quais serviços fazem mais sentido para você.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>Vocês atendem apenas em São Sebastião?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Nosso foco principal é São Sebastião, mas também atendemos outras cidades do Litoral Norte de SP, como Ilhabela, Caraguatatuba e Ubatuba. O importante é que temos conhecimento profundo da dinâmica de negócios da região, especialmente em relação à sazonalidade turística.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>Como funciona o pagamento?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Oferecemos diferentes opções de pagamento, incluindo parcelamento em até 12x no cartão de crédito, transferência bancária ou PIX. Para pacotes de longo prazo, também trabalhamos com mensalidades. Todas as condições são apresentadas na proposta comercial, após a consulta inicial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="cta">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pronto para transformar seu negócio com dados?</h2>
+                <p>Agende uma consulta inicial gratuita e descubra como podemos ajudar</p>
+            </div>
+            
+            <div class="text-center">
+                <a href="contato.html" class="btn btn-primary">Fale Conosco</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Mare<span>Dados</span></div>
+                    <p>Consultoria em dados e tecnologia para pequenos negócios em São Sebastião-SP, ajudando comerciantes locais a enfrentarem os desafios da baixa temporada.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="casos.html">Casos de Sucesso</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Serviços</h3>
+                    <ul>
+                        <li><a href="#diagnostico">Diagnóstico de Negócios</a></li>
+                        <li><a href="#crescimento">Planejamento Estratégico</a></li>
+                        <li><a href="#transformacao">Marketing com Dados</a></li>
+                        <li><a href="#detalhes">Capacitação</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Guarda Mor Lobo Viana, 1500, Centro, São Sebastião - SP</p>
+                    <p><i class="fas fa-phone"></i> (12) 3892-0000</p>
+                    <p><i class="fas fa-envelope"></i> contato@maredados.com.br</p>
+                    <p><i class="fas fa-clock"></i> Segunda a Sexta: 9h às 18h</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MareDados. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        // JavaScript específico para a página de serviços
+        document.addEventListener('DOMContentLoaded', function() {
+            // Accordion
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const accordion = this.parentElement;
+                    accordion.classList.toggle('active');
+                    
+                    const icon = this.querySelector('i');
+                    if (accordion.classList.contains('active')) {
+                        icon.classList.replace('fa-plus', 'fa-minus');
+                    } else {
+                        icon.classList.replace('fa-minus', 'fa-plus');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

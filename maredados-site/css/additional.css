@@ -1,0 +1,50 @@
+/* Estilos adicionais para corrigir problemas de layout */
+.text-center {
+    text-align: center;
+}
+
+/* Estilos para imagens placeholder */
+.placeholder-img {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 14px;
+    height: 100%;
+    width: 100%;
+}
+
+/* Correções para responsividade */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .section-title h2 {
+        font-size: 28px;
+    }
+}
+
+/* Estilos para mensagens de erro no formulário */
+.error {
+    border-color: #e74c3c !important;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
